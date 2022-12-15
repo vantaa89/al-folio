@@ -3,7 +3,7 @@ layout: post
 title: Constituency Test
 date: 2022-12-15 19:29:00 +0900
 description: 문장 안에서 한 덩어리로 묶일 수 있는 것은 어디까지일지, 이를 판별하는 방법에는 무엇이 있는지 알아본다.
-categories: Linguistics Syntax
+categories: linguistics syntax
 giscus_comments: true
 ---
 

@@ -3,7 +3,7 @@ layout: post
 title: 네트워크 유량 문제와 Ford-Fulkerson 알고리즘
 date: 2022-09-15 00:00:00 +0900
 description: 
-categories: Algorithm
+categories: algorithm
 giscus_comments: true
 ---
 
