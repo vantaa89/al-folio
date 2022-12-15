@@ -1,12 +1,7 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - vantaa89
 
 github_repos:
-  - alshedivat/al-folio
-  - twbs/bootstrap
-  - jekyll/jekyll
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - jpswalsh/academicons
-  - mathjax/MathJax
+  - vantaa89/CED_Project
+  - vantaa89/ds-project
+  - vantaa89/gp2-mentoring
