@@ -116,7 +116,7 @@ bing_site_verification:  # out your bing-site-verification ID (Bing Webmaster)
 
 blog_name: blog # blog_name will be displayed in your blog page
 blog_nav_title: blog # your blog must have a title for it to be displayed in the nav bar
-blog_description: 공부하면서 오래 기억하고 싶은 것들
+blog_description: 공부하면서 오래 기억해두고 싶은 것들
 permalink: /blog/:year/:title/
 
 # Pagination
