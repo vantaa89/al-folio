@@ -11,14 +11,14 @@
 - title: Education
   type: time_table
   contents:
-    - title: Undergraduate Student
-      institution: Seoul National University, Seoul, Republic of Korea
+    - title: Seoul National University, Seoul, Republic of Korea
+      institution: Undergraduate Student
       year: 2021 - Present
       description:
         - Department of Electrical and Computer Engineering. Minor in Linguistics
         - "GPA: 4.26/4.30"
-    - title: High School
-      institution: Korea Science Academy of KAIST
+    - title: Korea Science Academy of KAIST, Busan, Republic of Korea
+      institution: High School
       year: 2018 - 2021
       description:
         - "GPA: 4.17/4.30 (Rank: 4/130)"
