@@ -80,19 +80,24 @@
     - year: 2018
       title: Bronze Prize, Korea Olympiads in Informatics
 
-- title: Courses
+- title: Relevant Courses
   type: time_table
   contents: 
-    - year: Fall 2021
-      items: 
-        - Creative Engineering Design, Programming Methodology, Linear Algebra for Electrical Systems
-    - year: Spring 2022
-      items:
-        - Signals and Systems, Introduction to Circuit Theory and Laboratory, Computational Linguistics
     - year: Fall 2022
       items: 
         - Digital Logic Design & Lab, Introduction to Electromagnetism with Practice, Mathematical Foundations of Deep Neural Networks
         - Syntax
+    - year: Spring 2022
+      items:
+        - Signals and Systems, Introduction to Circuit Theory and Laboratory, Computational Linguistics
+    - year: Fall 2021
+      items: 
+        - Creative Engineering Design, Programming Methodology, Linear Algebra for Electrical Systems
+    - year: 2018-2020
+      items: 
+        - CS III(Introduction to CS Theory), Data Structure
+        - Introduction to Modern Physics, Mathematical Modelling
+    
 
 # - title: Academic Interests
 #   type: nested_list

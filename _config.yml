@@ -72,7 +72,7 @@ github_username: vantaa89 # your GitHub user name
 gitlab_username: # your GitLab user name
 twitter_username: # your Twitter handle
 mastodon_username: # your mastodon instance+username in the format instance.tld/@username
-linkedin_username:  # your LinkedIn user name
+linkedin_username: leeseojune # your LinkedIn user name
 telegram_username: # your Telegram user name
 scholar_userid: # your Google Scholar ID
 semanticscholar_id: # your Semantic Scholar ID
@@ -116,7 +116,7 @@ bing_site_verification:  # out your bing-site-verification ID (Bing Webmaster)
 
 blog_name: blog # blog_name will be displayed in your blog page
 blog_nav_title: blog # your blog must have a title for it to be displayed in the nav bar
-blog_description: 공부하면서 기록해두고 싶은 것들
+blog_description: 공부하면서 오래 기억하고 싶은 것들
 permalink: /blog/:year/:title/
 
 # Pagination
@@ -147,8 +147,8 @@ disqus_shortname: al-folio # put your disqus shortname
 # If you have blog posts published on medium.com or other exteranl sources,
 # you can display them in your blog by adding a link to the RSS feed.
 external_sources:
-  - name: medium.com
-    rss_url: https://medium.com/@al-folio/feed
+  # - name: medium.com
+  #   rss_url: https://medium.com/@al-folio/feed
 
 # -----------------------------------------------------------------------------
 # Collections

@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Undergraduate Student majoring Electrical & Computer Engineering at <a href='https://www.snu.ac.kr/'>Seoul National University</a>. # Address. Contacts. Moto. Etc.
+subtitle: Undergraduate student majoring Electrical & Computer Engineering at <a href='https://www.snu.ac.kr/'>Seoul National University</a>. # Address. Contacts. Moto. Etc.
 
 profile:
   align: right
