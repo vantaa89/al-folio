@@ -2,8 +2,8 @@
 layout: post
 title: 네트워크 유량 문제와 Ford-Fulkerson 알고리즘
 date: 2022-09-15 00:00:00 +0900
-description: 
-categories: algorithm
+description: 그래프 이론의 유명한 문제 중 하나인 네트워크 유량 문제에 대한 해법인 Ford-Fulkerson 알고리즘에 대해 알아보고 구현해본다
+tag: algorithm
 giscus_comments: true
 ---
 

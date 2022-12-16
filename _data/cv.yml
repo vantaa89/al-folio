@@ -11,12 +11,12 @@
 - title: Education
   type: time_table
   contents:
-    - title: Seoul National University, Seoul, Republic of Korea
+    - title: Seoul National University
       institution: Undergraduate Student
       year: 2021 - Present
       description:
         - Department of Electrical and Computer Engineering. Minor in Linguistics
-    - title: Korea Science Academy of KAIST, Busan, Republic of Korea
+    - title: Korea Science Academy of KAIST
       institution: High School
       year: 2018 - 2021
       description:
@@ -28,7 +28,7 @@
   type: time_table
   contents:
     - title: Undergraduate Research Intern
-      institution: Laboratory of Imaging Science and Technology (LIST), Seoul National University
+      institution: <a href="https://list.snu.ac.kr/" style="color:#000000">Laboratory of Imaging Science and Technology (LIST)</a>, Seoul National University
       year: Jun - Aug 2022
       description:
         - Advised by professor Jongho Lee
@@ -97,8 +97,11 @@
       items: 
         - CS III(Introduction to CS Theory), Data Structure
         - Introduction to Modern Physics, Mathematical Modelling
-    
 
+- title: Miscellanies    
+  type: list
+  contents:
+    - Generative Adversarial Networks (GANs) Specialization, Coursera, July 2022 <a href="/assets/pdf/coursera-certificate.pdf"> (certificate) </a>
 # - title: Academic Interests
 #   type: nested_list
 #   contents:
