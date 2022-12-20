@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Transformer 논문 정리
+title: Transformer 논문 리뷰
 date: 2022-06-16 00:00:00 +0900
 description: Transformer를 처음 제안한 논문 Vaswani, Ashish, et al. "Attention is all you need." Advances in neural information processing systems 30 (2017). 요약
-tag: deep-learning
+tag: deep-learning paper-review
 giscus_comments: true
 ---
 
