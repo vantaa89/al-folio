@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "[Rust] 여러 종류의 포인터: 참조자, 포인터, Box, Rc, RefCell"
+title: "[Rust] 참조와 포인터"
 date: 2023-01-04 01:00:00 +0900
-description: "Rust에서 포인터처럼 사용할 수 있는 참조자, 원시포인터, Box<T>, Rc<T>, 그리고 RefCell<T>에 대해 알아본다"
-tags: data-structure rust
+description: "Rust에서 포인터처럼 사용할 수 있는 참조자, 원시포인터, Box<T>, Rc<T>, 그리고 RefCell<T> 등에 대해 알아본다"
+tags: rust
 giscus_comments: true
 ---
 
@@ -187,6 +187,27 @@ println!("{}, {}",
 
 위의 코드에서 `RefCell`이 가리키는 값에 접근할 때 `borrow()`와 `borrow_mut()`을 사용한 것을 볼 수 있을 것이다. 이들은 `RefCell`이 감싸고 있는 객체에 대한 (immutable) reference와 mutable reference를 만드는 역할을 한다. 이때 Rust의 기본 원칙인, 한 scope안에 동일 객체의 2개 이상 mutable reference가 있을 수 없다는 것에 따라 `borrow_mut()`은 한 개만 만들 수 있을 것이다.
 
+
+# `Weak<T>`
+Reference counter 방식의 스마트 포인터는 기본적으로 순환참조 시의 메모리 누수 문제가 있다. 만약 두 개의 객체가 서로를 참조한다면, 두 객체의 reference counter는 1로, 영원히 메모리에서 사라지지 않게 되기 때문이다. `Weak<T>`는 `Rc<T>`에서 이를 해결하기 위해 존재하는 타입이다. `Weak`라는 이름은 "약한 참조"에서 나온 것으로, 소유권을 가지지 않는 `Weak<T>`의 특징에서 비롯된 것이다. 
+
+`Week<T>`는 `weak_count`를 1 증가시키는 대신, `strong_count`는 증가시키지 않는다. 메모리를 정리하는 것은 `strong_count`가 0이 될 때 정리하는 것으로, `week_count`와는 관련이 없다. 따라서 두 메모리가 서로를 참조할 때, 하나는 강한 참조(`Rc<T>`)로, 하나는 `Week<T>`로 참조하는 방식을 사용하면 순환참조를 막아줄 수 있다. 예를 들어서, 양방향 연결리스트(doubly linked list)를 다음과 같이 구현하는 것이 가능하다.
+
+```rust
+struct Node{
+    data: isize,
+    prev: Option<Weak<RefCell<Node>>>,
+    next: Option<Rc<RefCell<Node>>>,
+}
+```
+
+참조하는 값을 정해줄 때는, `Rc<T>`에서 `clone`을 사용한 것 대신에 `Rc::donwgrade()`를 사용해주면 약한 참조가 된다.
+
+```rust
+a.borrow_mut().next = Some(Rc::clone(&b));
+b.borrow_mut().prev = Some(Rc::downgrade(&a));
+```
+
 <!-- # 맺는 말
 Rust는 Java처럼 속도를 희생하지 않으면서도, Garbage Collector 없이도 컴파일 타임에 안전한 메모리 관리를 제공하는 것을 목표로 한다. 이 과정에서 소유권이라는 개념을 도입하였고, 이 때문에 포인터와 유사한 개념의 기능들이 이렇게 많아지는 등 처음 배울 때 불친절한 부분들이 있는 것 같다.  -->
 
@@ -195,3 +216,4 @@ Rust는 Java처럼 속도를 희생하지 않으면서도, Garbage Collector 없
 <a href="https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/raw-pointers.html">Rust 공식 가이드북 (영문, 1판) - Raw Pointers </a><br>
 <a href="https://doc.rust-lang.org/std/ptr/struct.NonNull.html#impl-Pointer-for-NonNull%3CT%3E"> Rust Documentation - `Struct std::ptr::NonNull` </a><br>
 <a href="https://applied-math-coding.medium.com/an-introduction-into-rust-part-12-box-t-rc-t-and-refcell-t-fae061d2d7fb"> Medium - An Introduction into Rust. Part 12: Box\<T\>, Rc\<T\> and RefCell\<T\> </a><br>
+쿠지라 히코우즈쿠에. (2023). _만들면서 배우는 러스트 프로그래밍_. (양현, 역). 파주: 위키북스. (원서출판 2022).
