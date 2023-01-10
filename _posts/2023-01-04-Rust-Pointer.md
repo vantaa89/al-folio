@@ -209,17 +209,66 @@ b.borrow_mut().prev = Some(Rc::downgrade(&a));
 ```
 
 # 정리
-<p align="center">
 
-|스마트포인터|여러 개 생성 가능|수정 가능(mutable)|
-|---|:---:|:---:|
-|`Box<T>`|X|X|
-|`Rc<T>`|O|X|
-|`RefCell<T>`|X|O|
-|`Rc<RefCell<T>>`|O|O (내부 가변성)|
-
+<!-- 
+|                   | 여러 개 생성 가능     | 수정 가능(mutable) |
+| ----------------- | :---------------: | :--------------: |
+| `Box<T>`          | X                 | X |
+|`Rc<T>`            | O                 | X |
+|`RefCell<T>`       | X                 | O |
+|`Rc<RefCell<T>>`   | O                 | O (내부 가변성) | -->
+<center>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-color:#ccc;border-spacing:0;}
+.tg td{background-color:#fff;border-bottom-width:1px;border-color:#ccc;border-style:solid;border-top-width:1px;
+  border-width:0px;color:#333;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 14px;
+  word-break:normal;}
+.tg th{background-color:#f0f0f0;border-bottom-width:1px;border-color:#ccc;border-style:solid;border-top-width:1px;
+  border-width:0px;color:#333;font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;
+  padding:10px 14px;word-break:normal;}
+.tg .tg-9wq8{border-color:inherit;text-align:center;vertical-align:middle}
+.tg .tg-l0uw{background-color:#efefef;border-color:inherit;font-family:"Courier New", Courier, monospace !important;text-align:left;
+  vertical-align:middle}
+.tg .tg-fsme{background-color:#efefef;border-color:inherit;text-align:center;vertical-align:middle}
+.tg .tg-qoqj{background-color:#f9f9f9;border-color:inherit;font-family:"Courier New", Courier, monospace !important;text-align:left;
+  vertical-align:middle}
+.tg .tg-kyy7{background-color:#f9f9f9;border-color:inherit;text-align:center;vertical-align:middle}
+.tg .tg-t7wa{border-color:inherit;font-family:"Courier New", Courier, monospace !important;text-align:left;vertical-align:middle}
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-l0uw"></th>
+    <th class="tg-fsme">여러 개 생성 가능</th>
+    <th class="tg-fsme">수정 가능</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-qoqj">Box&lt;T&gt;</td>
+    <td class="tg-kyy7">X</td>
+    <td class="tg-kyy7">X</td>
+  </tr>
+  <tr>
+    <td class="tg-t7wa">Rc&lt;T&gt;</td>
+    <td class="tg-9wq8"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">O</span></td>
+    <td class="tg-9wq8">X</td>
+  </tr>
+  <tr>
+    <td class="tg-qoqj">RefCell&lt;T&gt;</td>
+    <td class="tg-kyy7"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">X</span></td>
+    <td class="tg-kyy7"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">O</span></td>
+  </tr>
+  <tr>
+    <td class="tg-t7wa">Rc&lt;RefCell&lt;T&gt;&gt;</td>
+    <td class="tg-9wq8"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">O</span></td>
+    <td class="tg-9wq8">O (내부 가변성)</td>
+  </tr>
+</tbody>
+</table>
+</center>
 * `Weak<T>`: `Rc<T>`의 순환참조 문제를 해결하기 위해 사용
-</p>
+
 
 
 
