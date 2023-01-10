@@ -14,7 +14,28 @@ giscus_comments: true
 * race condition: 여러 스레드들이 일관성 없는 순서로 데이터나 리소스에 접근하게 되는 것
 * deadlock: 두 스레드가 서로가 가진 리소스의 사용이 끝나기를 기다리면서 계속 멈춰 있는 것
 
-러스트는 소유권과 타입 시스템을 통해서, 부정확한 동시성 코드는 컴파일 자체를 차단함으로써 동시성 프로그래밍을 쉽게 만들어준다.
+러스트는 소유권과 타입 시스템을 통해서, 부정확한 동시성 코드는 컴파일 자체를 차단함으로써 동시성 프로그래밍을 쉽게 만들어준다. 러스트 팀 측에서는 이를 **겁없는 동시성(fearless concurrency)**라고 지칭한다.
+
+Rust에서 스레드는 <a href="https://rinthel.github.io/rust-lang-book-ko/ch13-01-closures.html">클로저 문법</a>을 사용하여 만들 수 있다.
+
+```rust 
+use std::thread;
+use std::time::Duration;
+
+fn main() {
+    thread::spawn(|| {
+        for i in 1..10 {
+            println!("hi number {} from the spawned thread!", i);
+            thread::sleep(Duration::from_millis(1));
+        }
+    });
+
+    for i in 1..5 {
+        println!("hi number {} from the main thread!", i);
+        thread::sleep(Duration::from_millis(1));
+    }
+}
+```
 
 # 참고문헌
 <a href="https://rinthel.github.io/rust-lang-book-ko/ch16-00-concurrency.html"> _16. 겁없는 동시성_, The Rust Programming Language (한글 번역)</a>
