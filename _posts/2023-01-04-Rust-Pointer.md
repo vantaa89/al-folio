@@ -208,8 +208,22 @@ a.borrow_mut().next = Some(Rc::clone(&b));
 b.borrow_mut().prev = Some(Rc::downgrade(&a));
 ```
 
-<!-- # 맺는 말
-Rust는 Java처럼 속도를 희생하지 않으면서도, Garbage Collector 없이도 컴파일 타임에 안전한 메모리 관리를 제공하는 것을 목표로 한다. 이 과정에서 소유권이라는 개념을 도입하였고, 이 때문에 포인터와 유사한 개념의 기능들이 이렇게 많아지는 등 처음 배울 때 불친절한 부분들이 있는 것 같다.  -->
+# 정리
+<p align="center">
+
+|스마트포인터|여러 개 생성 가능|수정 가능(mutable)|
+|---|:---:|:---:|
+|`Box<T>`|X|X|
+|`Rc<T>`|O|X|
+|`RefCell<T>`|X|O|
+|`Rc<RefCell<T>>`|O|O (내부 가변성)|
+
+* `Weak<T>`: `Rc<T>`의 순환참조 문제를 해결하기 위해 사용
+</p>
+
+
+
+
 
 # 참고문헌
 <a href="https://rinthel.github.io/rust-lang-book-ko/ch04-02-references-and-borrowing.html"> Rust 공식 가이드북 (한글 번역) - 참조자와 빌림</a><br>
