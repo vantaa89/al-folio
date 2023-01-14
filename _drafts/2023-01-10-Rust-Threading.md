@@ -37,5 +37,42 @@ fn main() {
 }
 ```
 
+```
+Output:
+hi number 1 from the main thread!
+hi number 1 from the spawned thread!
+hi number 2 from the main thread!
+hi number 2 from the spawned thread!
+hi number 3 from the main thread!
+hi number 3 from the spawned thread!
+hi number 4 from the main thread!
+hi number 4 from the spawned thread!
+hi number 5 from the spawned thread!
+
+```
+
+여기서 spawned thread의 반복문을 `1..10`으로 해두었음에도 불구하고 스레드는 main thread가 종료되자마자 멈추는 것을 알 수 있다. 이를 막기 위해서는 `JoinHandle`을 사용해야 한다.
+
+```rust
+let handle = thread::spawn(|| {
+    for i in 1..10 {
+        println!("hi number {} from the spawned thread!", i);
+        thread::sleep(Duration::from_millis(1));
+    }
+});
+
+for i in 1..5 {
+    println!("hi number {} from the main thread!", i);
+    thread::sleep(Duration::from_millis(1));
+}
+
+handle.join().unwrap();
+```
+
+위와 같이 `thread::spawn()`의 리턴값으로 `join()`을 해주면 `main`이 끝나기 전, spawned thread가 끝났음을 확인한 후 종료한다.
+
+# 스레드 간의 통신
+
+
 # 참고문헌
 <a href="https://rinthel.github.io/rust-lang-book-ko/ch16-00-concurrency.html"> _16. 겁없는 동시성_, The Rust Programming Language (한글 번역)</a>
